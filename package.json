@@ -1,0 +1,47 @@
+{
+  "name": "poetica-ai-poem-generator",
+  "version": "1.0.0",
+  "description": "POETICA — AI Poem Generator. Turn feelings into words.",
+  "main": "server/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"magenta,cyan\" \"npm run server\" \"npm run client\"",
+    "client": "vite",
+    "server": "node server/server.js",
+    "build": "vite build",
+    "start": "NODE_ENV=production node server/server.js",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "clsx": "^2.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^1.16.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.3.0",
+    "tailwind-merge": "^3.0.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.12",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.2",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.12",
+    "vite": "^6.2.1"
+  },
+  "keywords": [
+    "poetica",
+    "poetry",
+    "ai",
+    "generator",
+    "multilingual",
+    "literature"
+  ],
+  "author": "POETICA",
+  "license": "MIT"
+}

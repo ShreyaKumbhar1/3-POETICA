@@ -1,0 +1,432 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    /* Base Theme Colors */
+    --color-bg-primary: transparent;
+    --color-bg-secondary: transparent;
+
+    /* Semantic Typography System (Light / Sakura Mode) */
+    --text-primary: #2B1630;
+    --text-secondary: #4D3652;
+    --text-muted: #684B6E;
+    --text-subtle: #7E5E85;
+    --text-on-dark: #FFFFFF;
+    --text-on-light: #2B1630;
+    --text-accent: #854479;
+
+    /* Semantic Surface & Card System (Luminous Frosted Ivory & Blush) */
+    --surface: rgba(255, 250, 246, 0.92);
+    --surface-elevated: rgba(255, 252, 249, 0.96);
+    --surface-glass: rgba(255, 250, 246, 0.90);
+    --surface-card: rgba(255, 250, 246, 0.92);
+    --surface-input: rgba(255, 255, 255, 0.95);
+    --surface-dark: rgba(32, 23, 43, 0.92);
+    --surface-veil: rgba(255, 250, 246, 0.90);
+
+    /* Delicate Sakura Borders & Soft Shadows */
+    --border-soft: rgba(217, 184, 203, 0.50);
+    --border-subtle: rgba(225, 195, 210, 0.35);
+    --border-strong: rgba(165, 110, 145, 0.70);
+
+    /* Aliases for backwards compatibility */
+    --poetica-text-primary: var(--text-primary);
+    --poetica-text-secondary: var(--text-secondary);
+    --poetica-text-muted: var(--text-muted);
+    --poetica-text-subtle: var(--text-subtle);
+    --poetica-text-on-dark: var(--text-on-dark);
+    --poetica-accent: #9B3B68;
+    --poetica-accent-hover: #7E2850;
+    --poetica-surface: var(--surface);
+    --poetica-surface-light: var(--surface-elevated);
+    --poetica-surface-glass: var(--surface-glass);
+    --poetica-surface-cream: var(--surface-elevated);
+    --poetica-surface-card: var(--surface-card);
+    --poetica-card-bg: var(--surface-card);
+    --poetica-surface-dark: var(--surface-dark);
+    --poetica-veil: var(--surface-veil);
+    --poetica-border: var(--border-soft);
+    --poetica-border-subtle: var(--border-subtle);
+    --poetica-border-strong: var(--border-strong);
+    --poetica-shadow: 0 10px 32px -4px rgba(70, 30, 65, 0.08);
+    --poetica-shadow-hover: 0 16px 40px -4px rgba(70, 30, 65, 0.14);
+    --poetica-glow-pink: rgba(255, 205, 218, 0.35);
+
+    /* Dreamy Spring Pastel Accents */
+    --pastel-lavender: #EAE5F3;
+    --pastel-pink: #F8D8D3;
+    --pastel-dusty-rose: #EEDADB;
+    --pastel-peach: #FDE8DE;
+    --pastel-cream: #FCF8F3;
+    --pastel-soft-blue: #E2EAF4;
+    --pastel-muted-rose: #D9B8C8;
+    --pastel-accent-purple: #854479;
+    --pastel-deep-purple: #35233F;
+
+    --glass-bg: var(--surface-glass);
+    --glass-border: var(--border-soft);
+    --glass-shadow: 0 8px 32px 0 rgba(70, 30, 65, 0.08);
+  }
+
+  /* Nocturnal & Night Atmosphere Contrast Adaptation */
+  .dark,
+  [data-theme="dark"],
+  [data-atmosphere="night"],
+  [data-time-of-day="night"] {
+    --color-bg-primary: #151122;
+    --color-bg-secondary: #221832;
+
+    /* Semantic Typography System (Dark Mode) */
+    --text-primary: #FFFDF9;
+    --text-secondary: #EADEEF;
+    --text-muted: #C5B2CF;
+    --text-subtle: #A896B5;
+    --text-on-dark: #FFFFFF;
+    --text-on-light: #2B1630;
+    --text-accent: #D48BAE;
+
+    /* Semantic Surface & Card System (Solid Velvet Indigo in Dark Mode) */
+    --surface: rgba(28, 18, 40, 0.94);
+    --surface-elevated: rgba(36, 24, 52, 0.96);
+    --surface-glass: rgba(28, 18, 40, 0.92);
+    --surface-card: rgba(28, 18, 40, 0.94);
+    --surface-input: rgba(38, 26, 54, 0.96);
+    --surface-dark: rgba(20, 13, 30, 0.96);
+    --surface-veil: rgba(22, 16, 32, 0.90);
+
+    --border-soft: rgba(255, 255, 255, 0.18);
+    --border-subtle: rgba(255, 255, 255, 0.10);
+    --border-strong: rgba(215, 180, 225, 0.45);
+
+    --poetica-text-primary: var(--text-primary);
+    --poetica-text-secondary: var(--text-secondary);
+    --poetica-text-muted: var(--text-muted);
+    --poetica-text-subtle: var(--text-subtle);
+    --poetica-surface: var(--surface);
+    --poetica-surface-light: var(--surface-elevated);
+    --poetica-surface-glass: var(--surface-glass);
+    --poetica-surface-cream: var(--surface-elevated);
+    --poetica-surface-card: var(--surface-card);
+    --poetica-card-bg: var(--surface-card);
+    --poetica-veil: var(--surface-veil);
+    --poetica-border: var(--border-soft);
+    --poetica-border-subtle: var(--border-subtle);
+    --poetica-border-strong: var(--border-strong);
+    --poetica-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.55);
+    --poetica-glow-pink: rgba(215, 175, 235, 0.25);
+
+    --glass-bg: var(--surface-glass);
+    --glass-border: var(--border-soft);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: transparent;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-serif, .poem-text {
+    font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    color: var(--text-primary);
+  }
+
+  p {
+    color: var(--text-secondary);
+  }
+
+  label {
+    color: var(--text-secondary);
+  }
+
+  input, select, textarea {
+    color: var(--text-primary);
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: var(--text-subtle);
+    opacity: 0.85;
+  }
+}
+
+/* Atmospheric Frosted Glass Surfaces */
+.hero-glass-surface {
+  background: var(--poetica-surface-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid var(--poetica-border);
+  box-shadow: var(--poetica-shadow);
+  border-radius: 2.25rem;
+  transition: all 0.3s ease;
+}
+
+.readability-veil {
+  background: var(--poetica-veil);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--poetica-border);
+  border-radius: 2rem;
+}
+
+.glass-panel {
+  background: var(--poetica-surface-cream);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--poetica-border);
+  box-shadow: var(--poetica-shadow);
+  color: var(--poetica-text-primary);
+}
+
+.glass-card {
+  background: var(--poetica-card-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--poetica-border);
+  box-shadow: var(--poetica-shadow);
+  color: var(--poetica-text-primary);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--poetica-shadow-hover);
+  border-color: var(--poetica-border-strong);
+}
+
+/* Form Inputs with Clear Contrast */
+.glass-input {
+  background: var(--surface-input);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid var(--border-soft);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.dark .glass-input,
+[data-atmosphere="night"] .glass-input {
+  background: var(--surface-input);
+  border-color: var(--border-soft);
+  color: var(--text-primary);
+}
+
+.glass-input::placeholder {
+  color: var(--text-subtle);
+  opacity: 0.85;
+}
+
+/* Semantic Typography & Surface Utility Classes */
+.text-poetica-primary {
+  color: var(--text-primary) !important;
+}
+.text-poetica-secondary {
+  color: var(--text-secondary) !important;
+}
+.text-poetica-muted {
+  color: var(--text-muted) !important;
+}
+.text-poetica-subtle {
+  color: var(--text-subtle) !important;
+}
+.text-poetica-accent {
+  color: var(--text-accent) !important;
+}
+.surface-poetica-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-soft);
+  color: var(--text-primary);
+}
+.surface-poetica-glass {
+  background: var(--surface-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid var(--border-soft);
+  color: var(--text-primary);
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: var(--pastel-accent-purple);
+  box-shadow: 0 0 0 3px rgba(133, 68, 121, 0.18);
+  outline: none;
+}
+
+.dark .glass-input:focus,
+[data-atmosphere="night"] .glass-input:focus {
+  background: rgba(45, 34, 60, 1);
+  border-color: #D48BAE;
+  box-shadow: 0 0 0 3px rgba(212, 139, 174, 0.25);
+}
+
+/* Button Hierarchy Harmonized with Sakura Aesthetic */
+.btn-primary {
+  background: linear-gradient(135deg, #633367 0%, #854479 50%, #B06086 100%);
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  box-shadow: 0 4px 16px rgba(110, 55, 100, 0.22);
+  transition: all 0.25s ease;
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #532857 0%, #753869 50%, #9F5076 100%);
+  box-shadow: 0 6px 22px rgba(110, 55, 100, 0.32);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: var(--poetica-surface-glass);
+  color: var(--poetica-text-primary) !important;
+  border: 1.5px solid var(--poetica-border);
+  box-shadow: 0 2px 10px rgba(70, 30, 65, 0.05);
+  font-weight: 700;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s ease;
+}
+
+.btn-secondary:hover {
+  background: #FFFFFF;
+  border-color: var(--poetica-border-strong);
+  color: var(--poetica-text-primary) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(70, 30, 65, 0.09);
+}
+
+.dark .btn-secondary:hover,
+[data-atmosphere="night"] .btn-secondary:hover {
+  background: rgba(48, 36, 62, 0.95);
+}
+
+.btn-ghost {
+  color: var(--poetica-text-primary) !important;
+  transition: all 0.2s ease;
+  font-weight: 600;
+}
+
+.btn-ghost:hover {
+  color: #633367 !important;
+  background: rgba(250, 220, 230, 0.55);
+}
+
+.dark .btn-ghost:hover {
+  color: #FFFDF9 !important;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.btn-pill {
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: 1px solid var(--poetica-border);
+  color: var(--poetica-text-secondary);
+  background: var(--poetica-surface);
+}
+
+.btn-pill:hover {
+  border-color: var(--poetica-border-strong);
+  color: var(--poetica-text-primary);
+  background: #FFFFFF;
+}
+
+.btn-pill.active {
+  background: linear-gradient(135deg, #633367, #854479);
+  color: #FFFFFF !important;
+  border-color: #633367;
+  box-shadow: 0 2px 10px rgba(110, 55, 100, 0.22);
+}
+
+.dark .btn-pill.active,
+[data-atmosphere="night"] .btn-pill.active {
+  background: #D48BAE;
+  color: #231527 !important;
+  border-color: #D48BAE;
+}
+
+/* Focus Visible Accessibility */
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--pastel-accent-purple);
+  outline-offset: 2px;
+}
+
+/* Line reveal animation for generated poems */
+@keyframes poeticLineFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+.poem-line {
+  animation: poeticLineFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Soft Floating Particle Pulse */
+@keyframes gentlePulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.02); opacity: 1; }
+}
+
+.animate-pulse-gentle {
+  animation: gentlePulse 4s infinite ease-in-out;
+}
+
+/* Custom Literary Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(133, 68, 121, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(133, 68, 121, 0.55);
+}
+
+/* Print Styles for Formatted Poem Export */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  nav, footer, .no-print, canvas, .atmosphere-controls {
+    display: none !important;
+  }
+  .printable-poem-container {
+    border: 2px solid #542F5C !important;
+    padding: 3rem !important;
+    margin: 2rem auto !important;
+    max-width: 650px !important;
+    box-shadow: none !important;
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* Reduced Motion Mode */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
